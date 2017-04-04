@@ -17,7 +17,9 @@ namespace ConverterApp
     {
 
 
-        
+        string[] previousSearchArray;
+        int currIndex = 0;
+        int maxIndex = 15;
 
 
         public frm_Main()
@@ -25,7 +27,8 @@ namespace ConverterApp
             InitializeComponent();
 
             txt_Convert.ReadOnly = true;
-            
+            previousSearchArray = new string[maxIndex];
+
         }
 
         // Global Variables and Constants
@@ -59,7 +62,8 @@ namespace ConverterApp
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = dbl_UofM + " centimetres is converted to ";
                 lbl_Convert.Text = " inches.";
-                
+                addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
+
             }
         }
 
@@ -85,7 +89,8 @@ namespace ConverterApp
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " Celsius is converted to ";
                 lbl_Convert.Text = " Fahrenheit.";
-               
+                addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
+
             }
         }
 
@@ -109,7 +114,8 @@ namespace ConverterApp
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " Centimetres is converted to ";
                 lbl_Convert.Text = " Feet.";
-               
+                addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
+
             }
         }
 
@@ -133,36 +139,13 @@ namespace ConverterApp
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " Kilometres is converted to ";
                 lbl_Convert.Text = " Miles.";
-                
+                addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
+
             }
         }
 
         
-        private void txt_UnitOfMeasure_TextChanged(object sender, EventArgs e)
-        {
-
-            if (!txt_UnitOfMeasure.Text.Contains("-"))
-            {
-                Neg_Label.Visible = false;
-            }
-
-    }
-
-
-        private void txt_UnitOfMeasure_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //if minus key pressed
-            if(e.KeyChar == '-')
-            {
-                //display warning
-                Neg_Label.Visible = true;
-                //don't handle keypress.
-                e.Handled = true;
-                
-            }
-
-
-        }
+     
 
         private void btn_M_to_Feet_Click(object sender, EventArgs e)
         {
@@ -184,15 +167,64 @@ namespace ConverterApp
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " metres is converted to ";
                 lbl_Convert.Text = " Feet.";
-                
+                addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
+
             }
 
+        }
+
+
+        //used to log the conversion incase it is used again.
+        private void addToPreviousSearches(string str)
+        {
+            if (!previousSearchArray.Contains(str))
+            {
+                previousSearchArray[currIndex] = ((currIndex + 1).ToString() + ". " + str);
+                currIndex++;
+                if (currIndex > (maxIndex - 1))
+                {
+                    currIndex = 0;
+                }
+            }
+
+            PrevSearchList.Items.Clear();
+            foreach (string item in previousSearchArray)
+            {
+                if (item != null)
+                {
+                    PrevSearchList.Items.Add(item);
+                }
+
+
+            }
         }
 
 
 
 
 
+        //checks if keypress is negative symbol and handles.
+        private void txt_UnitOfMeasure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if minus key pressed
+            if (e.KeyChar == '-')
+            {
+                //display warning
+                Neg_Label.Visible = true;
+                //don't handle keypress.
+                e.Handled = true;
+            }
+        }
 
+        //checks even if text is changed at all for symbol
+        private void txt_UnitOfMeasure_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!txt_UnitOfMeasure.Text.Contains("-"))
+            {
+                Neg_Label.Visible = false;
+            }
+
+        }
     }
 }
