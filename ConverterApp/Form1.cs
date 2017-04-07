@@ -116,6 +116,7 @@ namespace ConverterApp
             }
         }
 
+        //Convert Centimetres to Feet
         private void btn_CM_to_Feet_Click(object sender, EventArgs e)
         {
             //holds constant value to convert with
@@ -147,6 +148,8 @@ namespace ConverterApp
             }
         }
 
+
+        //convert Kilometres to Miles
         private void btn_KM_to_Miles_Click(object sender, EventArgs e)
         {
             //holds constant value to convert with
@@ -180,7 +183,7 @@ namespace ConverterApp
 
         
      
-
+        //convert metres to feet
         private void btn_M_to_Feet_Click(object sender, EventArgs e)
         {
             //holds constant value to convert with
@@ -218,11 +221,12 @@ namespace ConverterApp
         //used to log the conversion incase it is used again.
         private void addToPreviousSearches(string str)
         {
+            
             //if string is not contained with list
-            if (!previousSearchArray.Contains(str))
+            if (!checkRecentForString(str))
             {
                 //append string with current index value and add to that position within array.
-                previousSearchArray[currIndex] = ((currIndex + 1).ToString() + ". " + str);
+                previousSearchArray[currIndex] = ((currIndex + 1).ToString() + ": " + str);
                 //increase postition
                 currIndex++;
                 //if at the end (max size)
@@ -277,6 +281,47 @@ namespace ConverterApp
             {
                 Neg_Label.Visible = false;
             }
+
+        }
+
+
+        private bool checkRecentForString(string str)
+        {
+            //local found bool
+            bool found = false;
+
+            //if not null
+            if(previousSearchArray[0] != null)
+            {
+                //loop through to find all strings
+                foreach (string recentString in previousSearchArray)
+                {
+                    //if not empty
+                    if (recentString != null)
+                    {
+                        //split into two parts using the :
+                        string[] splitString = recentString.Split(':');
+
+                        //if the split string isnt null (should never be)
+                        if (splitString[1] != null)
+                        {
+                            //check the string matches the passed string
+                            if (splitString[1] == " " + str)
+                            {
+                                //return found
+                                found = true;
+                                return found;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //default nothing found, return false
+            return found;
+
+
+
 
         }
     }
