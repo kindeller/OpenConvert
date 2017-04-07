@@ -34,3 +34,12 @@ E:\TAFE\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debu
 E:\TAFE\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.frm_Main.resources
 E:\TAFE\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.Properties.Resources.resources
 E:\TAFE\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.csproj.GenerateResource.Cache
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\bin\Debug\ConverterApp.exe.config
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.exe
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.pdb
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\bin\Debug\ConverterApp.exe
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\bin\Debug\ConverterApp.pdb
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.csprojResolveAssemblyReference.cache
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.frm_Main.resources
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.Properties.Resources.resources
+E:\TAFE\Programming (2017) - Semester 1\Open Source Testing (GIT)\Assignment 2\Application\ConverterApp\obj\Debug\ConverterApp.csproj.GenerateResource.Cache

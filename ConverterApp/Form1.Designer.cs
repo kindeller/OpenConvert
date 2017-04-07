@@ -58,6 +58,7 @@
             // 
             this.txt_UnitOfMeasure.Location = new System.Drawing.Point(106, 17);
             this.txt_UnitOfMeasure.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_UnitOfMeasure.MaxLength = 6;
             this.txt_UnitOfMeasure.Name = "txt_UnitOfMeasure";
             this.txt_UnitOfMeasure.Size = new System.Drawing.Size(76, 20);
             this.txt_UnitOfMeasure.TabIndex = 1;

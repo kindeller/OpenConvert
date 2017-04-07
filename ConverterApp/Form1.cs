@@ -17,16 +17,24 @@ namespace ConverterApp
     {
 
 
+        //stores up to a maximum value of search results.
         string[] previousSearchArray;
+
+        //handles which position to write too
         int currIndex = 0;
-        int maxIndex = 15;
+
+        //variable to manage how big the previous search list can be when initialised
+        public int maxIndex = 15;
 
 
         public frm_Main()
         {
             InitializeComponent();
 
+            //stops the result box being edited
             txt_Convert.ReadOnly = true;
+            
+            //init the array.
             previousSearchArray = new string[maxIndex];
 
         }
@@ -35,19 +43,24 @@ namespace ConverterApp
         double dbl_UofM, dbl_Convert;
 
 
+        //manages the exit button, closing application.
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Centimeters to inches conversion button
         private void btn_CM_to_Inches_Click(object sender, EventArgs e)
         {
+            //holds constant value to convert with
             const double CM_TO_INCH = 0.3937;
            
             // validate user entry and convert to a double
 
+            //checks parse success
             if (! double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
+                //if failed clear fields and show message box.
                 MessageBox.Show("A numeric must be entered. Please re-enter the value.");
                 txt_UnitOfMeasure.Clear();
                 txt_UnitOfMeasure.Focus();
@@ -57,24 +70,30 @@ namespace ConverterApp
             }
             else
             {
+                //otherwise convert and update display.
                 dbl_UofM = Math.Abs(dbl_UofM);
                 dbl_Convert = dbl_UofM * CM_TO_INCH;
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = dbl_UofM + " centimetres is converted to ";
                 lbl_Convert.Text = " inches.";
+
+                //finally add the result to the recent list
                 addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
 
             }
         }
 
 
-
+        //celsius to fahrenheit
         private void btn_cels_to_Fah_Click(object sender, EventArgs e)
         {
+            //holds constant value to convert with
             const double CEL_TO_FAH = 32;
 
+            //checks parse success
             if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
+                //if failed clear fields and show message box.
                 MessageBox.Show("A numeric must be entered. Please re-enter the value.");
                 txt_UnitOfMeasure.Clear();
                 txt_UnitOfMeasure.Focus();
@@ -84,11 +103,14 @@ namespace ConverterApp
             }
             else
             {
+                //otherwise convert and update display.
                 dbl_UofM = Math.Abs(dbl_UofM);
                 dbl_Convert = dbl_UofM + CEL_TO_FAH;
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " Celsius is converted to ";
                 lbl_Convert.Text = " Fahrenheit.";
+
+                //finally add the result to the recent list
                 addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
 
             }
@@ -96,10 +118,13 @@ namespace ConverterApp
 
         private void btn_CM_to_Feet_Click(object sender, EventArgs e)
         {
+            //holds constant value to convert with
             const double CM_TO_FEET = 0.0328084;
 
+            //checks parse success
             if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
+                //if failed clear fields and show message box.
                 MessageBox.Show("A numeric must be entered. Please re-enter the value.");
                 txt_UnitOfMeasure.Clear();
                 txt_UnitOfMeasure.Focus();
@@ -109,11 +134,14 @@ namespace ConverterApp
             }
             else
             {
+                //otherwise convert and update display.
                 dbl_UofM = Math.Abs(dbl_UofM);
                 dbl_Convert = dbl_UofM * CM_TO_FEET;
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " Centimetres is converted to ";
                 lbl_Convert.Text = " Feet.";
+
+                //finally add the result to the recent list
                 addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
 
             }
@@ -121,10 +149,13 @@ namespace ConverterApp
 
         private void btn_KM_to_Miles_Click(object sender, EventArgs e)
         {
+            //holds constant value to convert with
             const double KM_TO_MILES = 0.621371;
 
+            //checks parse success
             if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
+                //if failed clear fields and show message box.
                 MessageBox.Show("A numeric must be entered. Please re-enter the value.");
                 txt_UnitOfMeasure.Clear();
                 txt_UnitOfMeasure.Focus();
@@ -134,11 +165,14 @@ namespace ConverterApp
             }
             else
             {
+                //otherwise convert and update display.
                 dbl_UofM = Math.Abs(dbl_UofM);
                 dbl_Convert = dbl_UofM * KM_TO_MILES;
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " Kilometres is converted to ";
                 lbl_Convert.Text = " Miles.";
+
+                //finally add the result to the recent list
                 addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
 
             }
@@ -149,10 +183,14 @@ namespace ConverterApp
 
         private void btn_M_to_Feet_Click(object sender, EventArgs e)
         {
+            //holds constant value to convert with
             const double M_TO_FEET = 3.28084;
 
+
+            //checks parse success
             if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
+                //if failed clear fields and show message box.
                 MessageBox.Show("A numeric must be entered. Please re-enter the value.");
                 txt_UnitOfMeasure.Clear();
                 txt_UnitOfMeasure.Focus();
@@ -162,11 +200,14 @@ namespace ConverterApp
             }
             else
             {
+                //otherwise convert and update display.
                 dbl_UofM = Math.Abs(dbl_UofM);
                 dbl_Convert = dbl_UofM * M_TO_FEET;
                 txt_Convert.Text = dbl_Convert.ToString();
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " metres is converted to ";
                 lbl_Convert.Text = " Feet.";
+
+                //finally add the result to the recent list
                 addToPreviousSearches(lbl_Display.Text + txt_Convert.Text + lbl_Convert.Text);
 
             }
@@ -177,19 +218,28 @@ namespace ConverterApp
         //used to log the conversion incase it is used again.
         private void addToPreviousSearches(string str)
         {
+            //if string is not contained with list
             if (!previousSearchArray.Contains(str))
             {
+                //append string with current index value and add to that position within array.
                 previousSearchArray[currIndex] = ((currIndex + 1).ToString() + ". " + str);
+                //increase postition
                 currIndex++;
+                //if at the end (max size)
                 if (currIndex > (maxIndex - 1))
                 {
+                    //reset and replace from 0
                     currIndex = 0;
                 }
             }
 
+            //clear all list items
             PrevSearchList.Items.Clear();
+
+            //loop through and update display
             foreach (string item in previousSearchArray)
             {
+                //if not null
                 if (item != null)
                 {
                     PrevSearchList.Items.Add(item);
@@ -197,7 +247,10 @@ namespace ConverterApp
 
 
             }
+
         }
+
+
 
 
 
